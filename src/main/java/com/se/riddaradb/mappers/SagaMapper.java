@@ -1,5 +1,6 @@
-package com.se.riddaradb.dtos;
+package com.se.riddaradb.mappers;
 
+import com.se.riddaradb.dtos.SagaDto;
 import com.se.riddaradb.entities.SagaEntity;
 import org.springframework.stereotype.Service;
 
