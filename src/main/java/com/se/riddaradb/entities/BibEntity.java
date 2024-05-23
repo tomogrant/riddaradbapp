@@ -13,6 +13,10 @@ public class BibEntity {
     int id;
     String authors;
     String title;
+    String book;
+
+    String bookSeries;
+    String editors;
     String placeOfPublication;
     String publisher;
     String publicationDate;
@@ -21,10 +25,13 @@ public class BibEntity {
     protected BibEntity(){
     }
 
-    public BibEntity(int id, String authors, String title, String placeOfPublication, String publisher, String publicationDate, String pageNumbers) {
+    public BibEntity(int id, String authors, String title, String book, String bookSeries, String editors, String placeOfPublication, String publisher, String publicationDate, String pageNumbers) {
         this.id = id;
         this.authors = authors;
         this.title = title;
+        this.editors = editors;
+        this.book = book;
+        this.bookSeries = bookSeries;
         this.placeOfPublication = placeOfPublication;
         this.publisher = publisher;
         this.publicationDate = publicationDate;
@@ -53,6 +60,29 @@ public class BibEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getBook() {
+        return book;
+    }
+    public void setBook(String book) {
+        this.book = book;
+    }
+
+    public String getBookSeries() {
+        return bookSeries;
+    }
+
+    public void setBookSeries(String bookSeries) {
+        this.bookSeries = bookSeries;
+    }
+
+    public String getEditors() {
+        return editors;
+    }
+
+    public void setEditors(String editors) {
+        this.editors = editors;
     }
 
     public String getPlaceOfPublication() {

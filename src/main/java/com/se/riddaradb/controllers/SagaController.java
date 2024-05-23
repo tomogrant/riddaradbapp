@@ -10,7 +10,6 @@ import java.util.Collection;
 public class SagaController {
 
     final SagaService sagaService;
-
     public SagaController(SagaService sagaService) {
         this.sagaService = sagaService;
     }

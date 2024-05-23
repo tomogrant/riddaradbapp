@@ -9,13 +9,13 @@ public class BibMapper {
 
     public BibDto mapToDto(BibEntity bibEntity){
         return new BibDto(bibEntity.getId(), bibEntity.getAuthors(), bibEntity.getTitle(),
-                bibEntity.getPlaceOfPublication(), bibEntity.getPublisher(),
+                bibEntity.getEditors(), bibEntity.getBook(), bibEntity.getBookSeries(), bibEntity.getPlaceOfPublication(), bibEntity.getPublisher(),
                 bibEntity.getPublicationDate(), bibEntity.getPageNumbers());
     }
 
     public BibEntity mapFromDto(BibDto bibDto){
         return new BibEntity(bibDto.getId(), bibDto.getAuthors(), bibDto.getTitle(),
-                bibDto.getPlaceOfPublication(), bibDto.getPublisher(),
+                bibDto.getEditors(), bibDto.getBook(), bibDto.getBookSeries(), bibDto.getPlaceOfPublication(), bibDto.getPublisher(),
                 bibDto.getPublicationDate(), bibDto.getPageNumbers());
     }
 }
