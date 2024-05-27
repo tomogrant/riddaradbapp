@@ -18,7 +18,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 #Copies app to container in /app
-COPY riddaradb/target/riddaradb.jar /app
+COPY riddaradbapp/target/riddaradb.jar /app
 
 #Starts app from location when container is run
 ENTRYPOINT ["java","-jar","riddaradb.jar"]

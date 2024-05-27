@@ -1,40 +1,68 @@
 package com.se.riddaradb.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
+//INSERT INTO BIB
+//VALUES (1, 'text', 'text', 'text', 'text', 1, 'text', 'text', 'text', 'text', 'text');
 
 @Entity
+@Table(name = "BIB")
 public class BibEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     String authors;
+
     String title;
+
+    String editors;
+
     String book;
 
     String bookSeries;
-    String editors;
+
+    int numOfVolumes;
+
     String placeOfPublication;
+
     String publisher;
-    String publicationDate;
+
+    String publicationYear;
+
     String pageNumbers;
+
+    @ManyToMany(mappedBy = "bibEntity")
+    Set<SagaEntity> sagaEntity = new HashSet<>();
 
     protected BibEntity(){
     }
 
-    public BibEntity(int id, String authors, String title, String book, String bookSeries, String editors, String placeOfPublication, String publisher, String publicationDate, String pageNumbers) {
+    public BibEntity(int id,
+                     String authors,
+                     String title,
+                     String editors,
+                     String book,
+                     String bookSeries,
+                     int numOfVolumes,
+                     String placeOfPublication,
+                     String publisher,
+                     String publicationYear,
+                     String pageNumbers) {
         this.id = id;
         this.authors = authors;
         this.title = title;
         this.editors = editors;
         this.book = book;
         this.bookSeries = bookSeries;
+        this.numOfVolumes = numOfVolumes;
         this.placeOfPublication = placeOfPublication;
         this.publisher = publisher;
-        this.publicationDate = publicationDate;
+        this.publicationYear = publicationYear;
         this.pageNumbers = pageNumbers;
     }
 
@@ -62,9 +90,18 @@ public class BibEntity {
         this.title = title;
     }
 
+    public String getEditors() {
+        return editors;
+    }
+
+    public void setEditors(String editors) {
+        this.editors = editors;
+    }
+
     public String getBook() {
         return book;
     }
+
     public void setBook(String book) {
         this.book = book;
     }
@@ -77,12 +114,12 @@ public class BibEntity {
         this.bookSeries = bookSeries;
     }
 
-    public String getEditors() {
-        return editors;
+    public int getNumOfVolumes() {
+        return numOfVolumes;
     }
 
-    public void setEditors(String editors) {
-        this.editors = editors;
+    public void setNumOfVolumes(int numOfVolumes) {
+        this.numOfVolumes = numOfVolumes;
     }
 
     public String getPlaceOfPublication() {
@@ -101,12 +138,12 @@ public class BibEntity {
         this.publisher = publisher;
     }
 
-    public String getPublicationDate() {
-        return publicationDate;
+    public String getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setPublicationDate(String publicationDate) {
-        this.publicationDate = publicationDate;
+    public void setPublicationYear(String publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public String getPageNumbers() {
@@ -115,5 +152,13 @@ public class BibEntity {
 
     public void setPageNumbers(String pageNumbers) {
         this.pageNumbers = pageNumbers;
+    }
+
+    public Set<SagaEntity> getSagaEntity() {
+        return sagaEntity;
+    }
+
+    public void setSagaEntity(Set<SagaEntity> sagaEntity) {
+        this.sagaEntity = sagaEntity;
     }
 }
