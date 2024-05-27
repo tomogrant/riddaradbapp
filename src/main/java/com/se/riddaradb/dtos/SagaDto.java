@@ -1,5 +1,7 @@
 package com.se.riddaradb.dtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,6 +10,7 @@ public class SagaDto {
     int id;
     String name;
     int date;
+
     Boolean isTranslated;
     Set<Integer> bibIds;
 
@@ -43,11 +46,11 @@ public class SagaDto {
         this.date = date;
     }
 
-    public Boolean getTranslated() {
+    public Boolean getIsTranslated() {
         return isTranslated;
     }
 
-    public void setTranslated(Boolean isTranslated) {
+    public void setIsTranslated(Boolean isTranslated) {
         this.isTranslated = isTranslated;
     }
 

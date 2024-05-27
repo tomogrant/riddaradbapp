@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class SagaMapper {
 
     public SagaDto mapToDto(SagaEntity sagaEntity){
-        SagaDto sagaDto = new SagaDto(sagaEntity.getId(), sagaEntity.getName(), sagaEntity.getDate(), sagaEntity.getTranslated());
+        SagaDto sagaDto = new SagaDto(sagaEntity.getId(), sagaEntity.getName(), sagaEntity.getDate(), sagaEntity.getIsTranslated());
 
         sagaDto.setBibIds(sagaEntity.getBibEntity()
                 .stream()
@@ -22,6 +22,6 @@ public class SagaMapper {
     }
 
     public SagaEntity mapFromDto(SagaDto sagaDto){
-        return new SagaEntity(sagaDto.getId(), sagaDto.getName(), sagaDto.getDate(), sagaDto.getTranslated());
+        return new SagaEntity(sagaDto.getId(), sagaDto.getName(), sagaDto.getDate(), sagaDto.getIsTranslated());
     }
 }

@@ -61,11 +61,11 @@ public class SagaEntity {
         this.date = date;
     }
 
-    public Boolean getTranslated() {
+    public Boolean getIsTranslated() {
         return isTranslated;
     }
 
-    public void setTranslated(Boolean isTranslated) {
+    public void setIsTranslated(Boolean isTranslated) {
         this.isTranslated = isTranslated;
     }
 
