@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-//INSERT INTO SAGA
-//VALUES (1, 1300, 'text');
-
 @Entity
 @Table(name = "SAGA")
 public class SagaEntity {
@@ -21,11 +18,29 @@ public class SagaEntity {
 
     Boolean isTranslated;
 
-    @ManyToMany
-    @JoinTable(name = "bib_saga",
+    @ManyToMany()
+    @JoinTable(name = "saga-bib",
             joinColumns = @JoinColumn(name = "saga_id"),
             inverseJoinColumns = @JoinColumn(name = "bib_id"))
     Set<BibEntity> bibEntity = new HashSet<>();
+
+    @ManyToMany()
+    @JoinTable(name = "saga-folklore",
+            joinColumns = @JoinColumn(name = "saga_id"),
+            inverseJoinColumns = @JoinColumn(name = "folklore_id"))
+    Set<FolkloreEntity> folkloreEntity = new HashSet<>();
+
+    @ManyToMany()
+    @JoinTable(name = "saga-person",
+            joinColumns = @JoinColumn(name = "saga_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
+    Set<PersonEntity> personEntity = new HashSet<>();
+
+    @ManyToMany()
+    @JoinTable(name = "saga-place",
+            joinColumns = @JoinColumn(name = "saga_id"),
+            inverseJoinColumns = @JoinColumn(name = "place_id"))
+    Set<PlaceEntity> placeEntity = new HashSet<>();
 
     protected SagaEntity() {
     }
@@ -75,5 +90,29 @@ public class SagaEntity {
 
     public void setBibEntity(Set<BibEntity> bibEntity) {
         this.bibEntity = bibEntity;
+    }
+
+    public Set<FolkloreEntity> getFolkloreEntity() {
+        return folkloreEntity;
+    }
+
+    public void setFolkloreEntity(Set<FolkloreEntity> folkloreEntity) {
+        this.folkloreEntity = folkloreEntity;
+    }
+
+    public Set<PersonEntity> getPersonEntity() {
+        return personEntity;
+    }
+
+    public void setPersonEntity(Set<PersonEntity> personEntity) {
+        this.personEntity = personEntity;
+    }
+
+    public Set<PlaceEntity> getPlaceEntity() {
+        return placeEntity;
+    }
+
+    public void setPlaceEntity(Set<PlaceEntity> placeEntity) {
+        this.placeEntity = placeEntity;
     }
 }

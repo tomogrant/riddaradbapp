@@ -10,9 +10,11 @@ public class SagaDto {
     int id;
     String name;
     int date;
-
     Boolean isTranslated;
     Set<Integer> bibIds;
+    Set<Integer> folkloreIds;
+    Set<Integer> personIds;
+    Set<Integer> placeIds;
 
     public SagaDto(int id, String name, int date, Boolean isTranslated) {
         this.id = id;
@@ -20,6 +22,9 @@ public class SagaDto {
         this.date = date;
         this.isTranslated = isTranslated;
         bibIds = new HashSet<>();
+        folkloreIds = new HashSet<>();
+        personIds = new HashSet<>();
+        placeIds = new HashSet<>();
     }
 
     public int getId() {
@@ -60,5 +65,29 @@ public class SagaDto {
 
     public void setBibIds(Set<Integer> bibIds) {
         this.bibIds = bibIds;
+    }
+
+    public Set<Integer> getFolkloreIds() {
+        return folkloreIds;
+    }
+
+    public void setFolkloreIds(Set<Integer> folkloreIds) {
+        this.folkloreIds = folkloreIds;
+    }
+
+    public Set<Integer> getPersonIds() {
+        return personIds;
+    }
+
+    public void setPersonIds(Set<Integer> personIds) {
+        this.personIds = personIds;
+    }
+
+    public Set<Integer> getPlaceIds() {
+        return placeIds;
+    }
+
+    public void setPlaceIds(Set<Integer> placeIds) {
+        this.placeIds = placeIds;
     }
 }

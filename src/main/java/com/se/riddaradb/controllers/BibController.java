@@ -2,6 +2,7 @@ package com.se.riddaradb.controllers;
 
 import com.se.riddaradb.dtos.BibDto;
 import com.se.riddaradb.services.BibService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -21,12 +22,12 @@ public class BibController {
     }
 
     @PostMapping("/postbibentry")
-    BibDto postBibEntry(@RequestBody BibDto bibDto){
+    BibDto postBibEntry(@RequestBody @Valid BibDto bibDto){
         return bibService.saveBibEntry(bibDto);
     }
 
     @PutMapping("/putbibentry")
-    BibDto putBibEntry(@RequestBody BibDto bibDto){
+    BibDto putBibEntry(@RequestBody @Valid BibDto bibDto){
         return bibService.saveBibEntry(bibDto);
     }
 

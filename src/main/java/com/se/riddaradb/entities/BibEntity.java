@@ -1,6 +1,7 @@
 package com.se.riddaradb.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,12 +17,15 @@ public class BibEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @NotBlank
     String authors;
 
+    @NotBlank
     String title;
 
     String editors;
 
+    @NotBlank
     String book;
 
     String bookSeries;
@@ -30,8 +34,10 @@ public class BibEntity {
 
     String placeOfPublication;
 
+    @NotBlank
     String publisher;
 
+    @NotBlank
     String publicationYear;
 
     String pageNumbers;
