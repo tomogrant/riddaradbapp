@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "PLACE")
-public class PlaceEntity {
+@Table(name = "OBJECT")
+public class ObjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,28 +15,25 @@ public class PlaceEntity {
 
     String name;
 
+    String description;
+
     @Enumerated(EnumType.STRING)
     Type type;
 
     public enum Type {
-        COUNTRY, SETTLEMENT, SITE, OTHER
+        ARMOUR, WEAPON, JEWELLERY, CLOTHING, OTHER
     }
 
-    @ManyToMany()
-    @JoinTable(name = "place-person",
-            joinColumns = @JoinColumn(name = "place_id"),
-            inverseJoinColumns = @JoinColumn(name = "person_id"))
-    Set<PersonEntity> personEntity = new HashSet<>();
-
-    @ManyToMany(mappedBy = "placeEntity")
+    @ManyToMany(mappedBy = "objectEntity")
     Set<SagaEntity> sagaEntity = new HashSet<>();
 
-    protected PlaceEntity() {
+    protected ObjectEntity() {
     }
 
-    public PlaceEntity(int id, String name, Type type) {
+    public ObjectEntity(int id, String name, String description, Type type) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.type = type;
     }
 
@@ -56,20 +53,20 @@ public class PlaceEntity {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Type getType() {
         return type;
     }
 
     public void setType(Type type) {
         this.type = type;
-    }
-
-    public Set<PersonEntity> getPersonEntity() {
-        return personEntity;
-    }
-
-    public void setPersonEntity(Set<PersonEntity> personEntity) {
-        this.personEntity = personEntity;
     }
 
     public Set<SagaEntity> getSagaEntity() {

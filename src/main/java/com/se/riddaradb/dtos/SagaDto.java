@@ -15,6 +15,8 @@ public class SagaDto {
     Set<Integer> folkloreIds;
     Set<Integer> personIds;
     Set<Integer> placeIds;
+    Set<Integer> objectIds;
+    Set<Integer> msIds;
 
     public SagaDto(int id, String name, int date, Boolean isTranslated) {
         this.id = id;
@@ -25,6 +27,8 @@ public class SagaDto {
         folkloreIds = new HashSet<>();
         personIds = new HashSet<>();
         placeIds = new HashSet<>();
+        objectIds = new HashSet<>();
+        msIds = new HashSet<>();
     }
 
     public int getId() {
@@ -89,5 +93,21 @@ public class SagaDto {
 
     public void setPlaceIds(Set<Integer> placeIds) {
         this.placeIds = placeIds;
+    }
+
+    public Set<Integer> getObjectIds() {
+        return objectIds;
+    }
+
+    public void setObjectIds(Set<Integer> objectIds) {
+        this.objectIds = objectIds;
+    }
+
+    public Set<Integer> getMsIds() {
+        return msIds;
+    }
+
+    public void setMsIds(Set<Integer> msIds) {
+        this.msIds = msIds;
     }
 }

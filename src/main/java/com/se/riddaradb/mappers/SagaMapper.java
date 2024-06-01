@@ -5,6 +5,8 @@ import com.se.riddaradb.entities.BibEntity;
 import com.se.riddaradb.entities.FolkloreEntity;
 import com.se.riddaradb.entities.PersonEntity;
 import com.se.riddaradb.entities.PlaceEntity;
+import com.se.riddaradb.entities.ObjectEntity;
+import com.se.riddaradb.entities.MsEntity;
 import com.se.riddaradb.entities.SagaEntity;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,16 @@ public class SagaMapper {
         sagaDto.setPlaceIds(sagaEntity.getPlaceEntity()
                 .stream()
                 .map(PlaceEntity::getId)
+                .collect(Collectors.toSet()));
+
+        sagaDto.setObjectIds(sagaEntity.getObjectEntity()
+                .stream()
+                .map(ObjectEntity::getId)
+                .collect(Collectors.toSet()));
+
+        sagaDto.setMsIds(sagaEntity.getMsEntity()
+                .stream()
+                .map(MsEntity::getId)
                 .collect(Collectors.toSet()));
 
 

@@ -1,5 +1,7 @@
 package com.se.riddaradb.dtos;
 
+import com.se.riddaradb.entities.PersonEntity;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,14 +9,16 @@ public class PersonDto {
 
     int id;
     String name;
-    String species;
+    PersonEntity.Species species;
+    String realWorldRef;
     Set<Integer> placeIds;
     Set<Integer> sagaIds;
 
-    public PersonDto(int id, String name, String species) {
+    public PersonDto(int id, String name, PersonEntity.Species species, String realWorldRef) {
         this.id = id;
         this.name = name;
         this.species = species;
+        this.realWorldRef = realWorldRef;
         placeIds = new HashSet<>();
         sagaIds = new HashSet<>();
     }
@@ -35,12 +39,20 @@ public class PersonDto {
         this.name = name;
     }
 
-    public String getSpecies() {
+    public PersonEntity.Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(PersonEntity.Species species) {
         this.species = species;
+    }
+
+    public String getRealWorldRef() {
+        return realWorldRef;
+    }
+
+    public void setRealWorldRef(String realWorldRef) {
+        this.realWorldRef = realWorldRef;
     }
 
     public Set<Integer> getPlaceIds() {

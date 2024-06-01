@@ -17,16 +17,21 @@ public class SagaService {
     final FolkloreRepository folkloreRepository;
     final PersonRepository personRepository;
     final PlaceRepository placeRepository;
+    final ObjectRepository objectRepository;
+    final MsRepository msRepository;
     final SagaMapper sagaMapper;
 
     public SagaService(SagaRepository sagaRepository, BibRepository bibRepository,
                        FolkloreRepository folkloreRepository, PersonRepository personRepository,
-                       PlaceRepository placeRepository, SagaMapper sagaMapper) {
+                       PlaceRepository placeRepository, ObjectRepository objectRepository,
+                       MsRepository msRepository, SagaMapper sagaMapper) {
         this.sagaRepository = sagaRepository;
         this.bibRepository = bibRepository;
         this.folkloreRepository = folkloreRepository;
         this.personRepository = personRepository;
         this.placeRepository = placeRepository;
+        this.objectRepository = objectRepository;
+        this.msRepository = msRepository;
         this.sagaMapper = sagaMapper;
     }
 
@@ -44,6 +49,9 @@ public class SagaService {
         sagaEntity.setFolkloreEntity(new HashSet<>(folkloreRepository.findAllById(sagaDto.getFolkloreIds())));
         sagaEntity.setPersonEntity(new HashSet<>(personRepository.findAllById(sagaDto.getPersonIds())));
         sagaEntity.setPlaceEntity(new HashSet<>(placeRepository.findAllById(sagaDto.getPlaceIds())));
+        sagaEntity.setObjectEntity(new HashSet<>(objectRepository.findAllById(sagaDto.getObjectIds())));
+        sagaEntity.setMsEntity(new HashSet<>(msRepository.findAllById(sagaDto.getMsIds())));
+
         return sagaMapper.mapToDto(sagaRepository.save(sagaEntity));
     }
 

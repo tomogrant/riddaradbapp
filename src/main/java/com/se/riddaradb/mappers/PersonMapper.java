@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class PersonMapper {
 
     public PersonDto mapToDto(PersonEntity personEntity){
-        PersonDto personDto = new PersonDto(personEntity.getId(), personEntity.getName(), personEntity.getSpecies());
+        PersonDto personDto = new PersonDto(personEntity.getId(), personEntity.getName(), personEntity.getSpecies(), personEntity.getRealWorldRef());
 
         personDto.setPlaceIds(personEntity.getPlaceEntity()
                 .stream()
@@ -28,6 +28,6 @@ public class PersonMapper {
     }
 
     public PersonEntity mapFromDto(PersonDto personDto){
-        return new PersonEntity(personDto.getId(), personDto.getName(), personDto.getSpecies());
+        return new PersonEntity(personDto.getId(), personDto.getName(), personDto.getSpecies(), personDto.getRealWorldRef());
     }
 }

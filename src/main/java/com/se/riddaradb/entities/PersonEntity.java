@@ -15,7 +15,14 @@ public class PersonEntity {
 
     String name;
 
-    String species;
+    @Enumerated(EnumType.STRING)
+    PersonEntity.Species species;
+
+    public enum Species {
+        HUMAN, DVERGR, JOTUNN, RISI, TROLL
+    }
+
+    String realWorldRef;
 
     @ManyToMany(mappedBy = "personEntity")
     Set<PlaceEntity> placeEntity = new HashSet<>();
@@ -26,10 +33,12 @@ public class PersonEntity {
     protected PersonEntity() {
     }
 
-    public PersonEntity(int id, String name, String species) {
+    public PersonEntity(int id, String name, Species species, String realWorldRef) {
         this.id = id;
         this.name = name;
+        //Make this an enum? There is after all a finite number of species
         this.species = species;
+        this.realWorldRef = realWorldRef;
     }
 
     public int getId() {
@@ -48,12 +57,20 @@ public class PersonEntity {
         this.name = name;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
+    }
+
+    public String getRealWorldRef() {
+        return realWorldRef;
+    }
+
+    public void setRealWorldRef(String realWorldRef) {
+        this.realWorldRef = realWorldRef;
     }
 
     public Set<PlaceEntity> getPlaceEntity() {

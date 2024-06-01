@@ -42,6 +42,18 @@ public class SagaEntity {
             inverseJoinColumns = @JoinColumn(name = "place_id"))
     Set<PlaceEntity> placeEntity = new HashSet<>();
 
+    @ManyToMany()
+    @JoinTable(name = "saga-object",
+            joinColumns = @JoinColumn(name = "saga_id"),
+            inverseJoinColumns = @JoinColumn(name = "object_id"))
+    Set<ObjectEntity> objectEntity = new HashSet<>();
+
+    @ManyToMany()
+    @JoinTable(name = "saga-ms",
+            joinColumns = @JoinColumn(name = "saga_id"),
+            inverseJoinColumns = @JoinColumn(name = "ms_id"))
+    Set<MsEntity> msEntity = new HashSet<>();
+
     protected SagaEntity() {
     }
 
@@ -114,5 +126,21 @@ public class SagaEntity {
 
     public void setPlaceEntity(Set<PlaceEntity> placeEntity) {
         this.placeEntity = placeEntity;
+    }
+
+    public Set<ObjectEntity> getObjectEntity() {
+        return objectEntity;
+    }
+
+    public void setObjectEntity(Set<ObjectEntity> objectEntity) {
+        this.objectEntity = objectEntity;
+    }
+
+    public Set<MsEntity> getMsEntity() {
+        return msEntity;
+    }
+
+    public void setMsEntity(Set<MsEntity> msEntity) {
+        this.msEntity = msEntity;
     }
 }
