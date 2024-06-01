@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2024-05-31T05:42:18.690Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:126.0) Gecko/20100101 Firefox/126.0" etag="13FH25-q0eF6NJ-GGCW1" version="24.4.9" type="github">
+  <diagram name="Page-1" id="P_dA7a-iiXR9jgt8RYUX">
+    <mxGraphModel dx="954" dy="497" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-2" value="&lt;div&gt;&lt;b&gt;Bibliography entry&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, author, title, editors, book, book series, numOfVolumes, placeOfPublication, publisher, publicationYear, pages, sagas, annotation)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="290" width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-3" value="&lt;div&gt;&lt;b&gt;Saga&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, name, date, isTranslated, bibliography, folklore motifs, personal names, place names, description)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="300" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-4" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.017;entryY=0.388;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="PnOTvo7oNyj5YefDkuB5-3" target="PnOTvo7oNyj5YefDkuB5-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="340" as="sourcePoint" />
+            <mxPoint x="490" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-5" value="&lt;div&gt;&lt;b&gt;Folkloric motifs&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, name, sagas, description, motif code)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="460" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-6" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.45;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="PnOTvo7oNyj5YefDkuB5-5" target="PnOTvo7oNyj5YefDkuB5-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="340" as="sourcePoint" />
+            <mxPoint x="580" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-7" value="&lt;div&gt;&lt;b&gt;Personal names &lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, name, associated place, species, [real-world reference], saga)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="150" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-8" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="PnOTvo7oNyj5YefDkuB5-3" target="PnOTvo7oNyj5YefDkuB5-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="400" as="sourcePoint" />
+            <mxPoint x="570" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-9" value="&lt;div&gt;&lt;b&gt;Place names&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, name, associated personal names, type (enum), [real-world reference], [coords], saga)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Can this refer to itself?&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="110" width="120" height="142.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-10" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="PnOTvo7oNyj5YefDkuB5-7" target="PnOTvo7oNyj5YefDkuB5-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="400" as="sourcePoint" />
+            <mxPoint x="570" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PnOTvo7oNyj5YefDkuB5-11" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="PnOTvo7oNyj5YefDkuB5-3" target="PnOTvo7oNyj5YefDkuB5-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="400" as="sourcePoint" />
+            <mxPoint x="570" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qojtPha7VB8KhZNGRFiS-1" value="&lt;div&gt;&lt;b&gt;Manuscripts&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, name, description, shelfmark, sagas)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="320" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qojtPha7VB8KhZNGRFiS-2" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.445;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="qojtPha7VB8KhZNGRFiS-1" target="PnOTvo7oNyj5YefDkuB5-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="280" as="sourcePoint" />
+            <mxPoint x="310" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qojtPha7VB8KhZNGRFiS-5" value="&lt;div&gt;&lt;b&gt;Objects&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(ID, name, description, type, sagas)&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="170" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qojtPha7VB8KhZNGRFiS-6" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="PnOTvo7oNyj5YefDkuB5-3" target="qojtPha7VB8KhZNGRFiS-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="330" as="sourcePoint" />
+            <mxPoint x="310" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
