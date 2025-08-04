@@ -9,6 +9,7 @@ public class SagaDto {
 
     int id;
     String name;
+    String description;
     int date;
     Boolean isTranslated;
     Set<Integer> bibIds;
@@ -18,9 +19,10 @@ public class SagaDto {
     Set<Integer> objectIds;
     Set<Integer> msIds;
 
-    public SagaDto(int id, String name, int date, Boolean isTranslated) {
+    public SagaDto(int id, String name, String description, int date, Boolean isTranslated) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.date = date;
         this.isTranslated = isTranslated;
         bibIds = new HashSet<>();
@@ -45,6 +47,14 @@ public class SagaDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getDate() {

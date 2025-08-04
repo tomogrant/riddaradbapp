@@ -1,22 +1,15 @@
 package com.se.riddaradb.mappers;
 
 import com.se.riddaradb.dtos.SagaDto;
-import com.se.riddaradb.entities.BibEntity;
-import com.se.riddaradb.entities.FolkloreEntity;
-import com.se.riddaradb.entities.PersonEntity;
-import com.se.riddaradb.entities.PlaceEntity;
-import com.se.riddaradb.entities.ObjectEntity;
-import com.se.riddaradb.entities.MsEntity;
-import com.se.riddaradb.entities.SagaEntity;
+import com.se.riddaradb.entities.*;
 import org.springframework.stereotype.Service;
-
 import java.util.stream.Collectors;
 
 @Service
 public class SagaMapper {
 
     public SagaDto mapToDto(SagaEntity sagaEntity){
-        SagaDto sagaDto = new SagaDto(sagaEntity.getId(), sagaEntity.getName(), sagaEntity.getDate(), sagaEntity.getIsTranslated());
+        SagaDto sagaDto = new SagaDto(sagaEntity.getId(), sagaEntity.getName(), sagaEntity.getDescription(), sagaEntity.getDate(), sagaEntity.getIsTranslated());
 
         sagaDto.setBibIds(sagaEntity.getBibEntity()
                 .stream()
@@ -48,11 +41,10 @@ public class SagaMapper {
                 .map(MsEntity::getId)
                 .collect(Collectors.toSet()));
 
-
         return sagaDto;
     }
 
     public SagaEntity mapFromDto(SagaDto sagaDto){
-        return new SagaEntity(sagaDto.getId(), sagaDto.getName(), sagaDto.getDate(), sagaDto.getIsTranslated());
+        return new SagaEntity(sagaDto.getId(), sagaDto.getName(), sagaDto.getDescription(), sagaDto.getDate(), sagaDto.getIsTranslated());
     }
 }

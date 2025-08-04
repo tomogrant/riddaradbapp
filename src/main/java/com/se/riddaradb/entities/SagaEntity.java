@@ -14,6 +14,8 @@ public class SagaEntity {
 
     String name;
 
+    String description;
+
     int date;
 
     Boolean isTranslated;
@@ -57,9 +59,10 @@ public class SagaEntity {
     protected SagaEntity() {
     }
 
-    public SagaEntity(int id, String name, int date, Boolean isTranslated) {
+    public SagaEntity(int id, String name, String description, int date, Boolean isTranslated) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.date = date;
         this.isTranslated = isTranslated;
     }
@@ -78,6 +81,14 @@ public class SagaEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getDate() {

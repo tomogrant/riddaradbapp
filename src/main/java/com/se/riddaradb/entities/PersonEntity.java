@@ -36,7 +36,6 @@ public class PersonEntity {
     public PersonEntity(int id, String name, Species species, String realWorldRef) {
         this.id = id;
         this.name = name;
-        //Make this an enum? There is after all a finite number of species
         this.species = species;
         this.realWorldRef = realWorldRef;
     }
