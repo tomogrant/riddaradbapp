@@ -21,10 +21,15 @@ public class SagaService {
     final MsRepository msRepository;
     final SagaMapper sagaMapper;
 
-    public SagaService(SagaRepository sagaRepository, BibRepository bibRepository,
-                       FolkloreRepository folkloreRepository, PersonRepository personRepository,
-                       PlaceRepository placeRepository, ObjectRepository objectRepository,
-                       MsRepository msRepository, SagaMapper sagaMapper) {
+    public SagaService(SagaRepository sagaRepository,
+                       BibRepository bibRepository,
+                       FolkloreRepository folkloreRepository,
+                       PersonRepository personRepository,
+                       PlaceRepository placeRepository,
+                       ObjectRepository objectRepository,
+                       MsRepository msRepository,
+                       SagaMapper sagaMapper) {
+
         this.sagaRepository = sagaRepository;
         this.bibRepository = bibRepository;
         this.folkloreRepository = folkloreRepository;
@@ -60,6 +65,8 @@ public class SagaService {
         if (sagaRepository.existsById(id)){
             removeSagaFromBibEntries(id);
             removeSagaFromFolkloreEntries(id);
+            removeSagaFromMsEntries(id);
+            removeSagaFromObjectEntries(id);
             removeSagaFromPersonEntries(id);
             removeSagaFromPlaceEntries(id);
 
@@ -93,6 +100,34 @@ public class SagaService {
                     folkloreSagaEntitiesSet.remove(sagaEntity);
                     folkloreEntity.setSagaEntity(folkloreSagaEntitiesSet);
                     folkloreRepository.save(folkloreEntity);
+                }
+            }
+        }
+    }
+
+    private void removeSagaFromMsEntries(int id){
+        Set<MsEntity> msEntitiesSet = new HashSet<>(msRepository.findAll());
+        for(MsEntity msEntity : msEntitiesSet){
+            Set<SagaEntity> msSagaEntitiesSet = new HashSet<>(msEntity.getSagaEntity());
+            for(SagaEntity sagaEntity : msSagaEntitiesSet){
+                if (sagaEntity.getId() == id) {
+                    msSagaEntitiesSet.remove(sagaEntity);
+                    msEntity.setSagaEntity(msSagaEntitiesSet);
+                    msRepository.save(msEntity);
+                }
+            }
+        }
+    }
+
+    private void removeSagaFromObjectEntries(int id){
+        Set<ObjectEntity> objectEntitiesSet = new HashSet<>(objectRepository.findAll());
+        for(ObjectEntity objectEntity : objectEntitiesSet){
+            Set<SagaEntity> objectSagaEntitiesSet = new HashSet<>(objectEntity.getSagaEntity());
+            for(SagaEntity sagaEntity : objectSagaEntitiesSet){
+                if (sagaEntity.getId() == id) {
+                    objectSagaEntitiesSet.remove(sagaEntity);
+                    objectEntity.setSagaEntity(objectSagaEntitiesSet);
+                    objectRepository.save(objectEntity);
                 }
             }
         }
